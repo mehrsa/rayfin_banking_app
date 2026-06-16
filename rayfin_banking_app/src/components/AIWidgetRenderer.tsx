@@ -38,7 +38,7 @@ export function AIWidgetRenderer({ widget, data }: AIWidgetRendererProps) {
   const chartData = data ?? widget.config.customProps?.data ?? [];
   const chartType = widget.config.chartType;
   const xAxisKey = widget.config.xAxis ?? 'name';
-  const colors = widget.config.colors ?? ['#2563eb', '#10b981', '#8b5cf6', '#f59e0b'];
+  const colors = widget.config.colors ?? ['#16a34a', '#10b981', '#84cc16', '#f59e0b'];
   const valueKeys = Object.keys(chartData[0] ?? {}).filter(
     (key) => key !== xAxisKey && typeof chartData[0]?.[key] === 'number'
   );

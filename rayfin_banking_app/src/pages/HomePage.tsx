@@ -135,14 +135,14 @@ function truncateLabel(label: string): string {
 
 function resolveAccentColor(accentClass: string): string {
   const palette: Record<string, string> = {
-    'bg-blue-500': '#3b82f6',
+    'bg-blue-500': '#f43f5e',
     'bg-emerald-500': '#10b981',
     'bg-violet-500': '#8b5cf6',
     'bg-amber-500': '#f59e0b',
     'bg-orange-500': '#f97316',
     'bg-rose-500': '#f43f5e',
-    'bg-sky-500': '#0ea5e9',
-    'bg-indigo-500': '#6366f1',
+    'bg-sky-500': '#fb7185',
+    'bg-indigo-500': '#ef4444',
   };
 
   return palette[accentClass] ?? '#64748b';
@@ -186,7 +186,7 @@ export function HomePage() {
   const [movementToAccountId, setMovementToAccountId] = useState('');
   const [movementCategoryId, setMovementCategoryId] = useState('');
   const [accountName, setAccountName] = useState('');
-  const [accountInstitution, setAccountInstitution] = useState('Rayfin Credit Union');
+  const [accountInstitution, setAccountInstitution] = useState('Contoso Credit Union');
   const [accountType, setAccountType] = useState<'checking' | 'savings' | 'investment'>(
     'checking'
   );
@@ -457,7 +457,7 @@ export function HomePage() {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.22em] text-blue-100">
                 <Sparkles className="h-3.5 w-3.5" />
-                Rayfin banking workspace
+                Banking workspace
               </div>
               <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
                 Welcome{profile?.fullName || user?.name ? `, ${profile?.fullName || user?.name}` : ''}.
@@ -648,7 +648,7 @@ export function HomePage() {
                       <Line
                         type="monotone"
                         dataKey="net"
-                        stroke="#2563eb"
+                        stroke="#16a34a"
                         strokeWidth={2.5}
                         dot={{ r: 3 }}
                         activeDot={{ r: 5 }}
@@ -1085,7 +1085,7 @@ export function HomePage() {
                     <Line
                       type="monotone"
                       dataKey="net"
-                      stroke="#2563eb"
+                      stroke="#16a34a"
                       strokeWidth={2.5}
                       dot={{ r: 3 }}
                       activeDot={{ r: 5 }}

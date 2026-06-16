@@ -1,5 +1,5 @@
-id: rayfin-banking-app
-name: rayfin_banking_app
+id: banking-ai-app
+name: banking_ai_app
 version: 1.0.0
 services:
   auth:
@@ -22,4 +22,4 @@ services:
   storage:
     enabled: false
   functions:
-    enabled: true
+    enabled: false

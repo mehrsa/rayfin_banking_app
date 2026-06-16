@@ -1,6 +1,7 @@
 import { getRayfinClient } from '@/services/rayfinClient';
 import { buildBankingAnalytics } from '@/services/bankingAnalytics';
 import { loadBankingSnapshot } from '@/services/bankingData';
+import { runLocalAgentWorkflow } from '@/services/localAgentWorkflow';
 import type { BankingAnalytics } from '@/types/banking';
 import type {
   AgentApiResponse,
@@ -267,17 +268,15 @@ export async function sendChatPrompt(input: {
   const snapshot = await loadBankingSnapshot();
   const analytics = buildBankingAnalytics(snapshot);
   const editingWidget = await findWidgetForEditing(input.editingWidgetId);
-  const response = await getRayfinClient().functions.chatWithBankingAgents.invoke({
-    input: {
-      userId: input.userId,
-      sessionId: input.sessionId,
-      prompt: input.prompt,
-      snapshot,
-      analytics,
-      editingWidget,
-      editingWidgetId: input.editingWidgetId ?? null,
-      createWidgetHint: input.createWidgetHint ?? false,
-    },
+  const response = await runLocalAgentWorkflow({
+    userId: input.userId,
+    sessionId: input.sessionId,
+    prompt: input.prompt,
+    snapshot,
+    analytics,
+    editingWidget,
+    editingWidgetId: input.editingWidgetId ?? null,
+    createWidgetHint: input.createWidgetHint ?? false,
   });
 
   if (response.widget) {

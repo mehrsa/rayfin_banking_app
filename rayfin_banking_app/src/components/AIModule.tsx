@@ -233,7 +233,7 @@ export function AIModule({
                   <>
                     <LineChart className="h-3.5 w-3.5" />
                     {widget.data_mode === 'dynamic'
-                      ? 'Refreshable chart backed by the current Rayfin ledger'
+                      ? 'Refreshable chart backed by the current ledger'
                       : 'Static comparison chart'}
                   </>
                 )}

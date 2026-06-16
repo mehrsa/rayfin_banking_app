@@ -58,7 +58,7 @@ function createId(prefix: string): string {
 }
 
 function getSessionStorageKey(userId: string): string {
-  return `rayfin-agent-session:${userId}`;
+  return `banking-agent-session:${userId}`;
 }
 
 function createOrLoadSessionId(userId: string): string {
@@ -78,7 +78,7 @@ function initialAssistantMessage(): ChatMessage {
     id: createId('message'),
     role: 'assistant',
     content:
-      'I can route requests through the Rayfin coordinator and specialist workflow: ask for banking answers, create AI widgets, or build a simulator for your finances.',
+      'I can route requests through the coordinator and specialist workflow: ask for banking answers, create AI widgets, or build a simulator for your finances.',
   };
 }
 
@@ -264,7 +264,7 @@ export function AgentChat({
           content:
             error instanceof Error
               ? error.message
-              : 'The Rayfin banking workspace could not complete that request.',
+              : 'The banking workspace could not complete that request.',
         },
       ]);
     } finally {
@@ -279,13 +279,13 @@ export function AgentChat({
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-blue-100">
               <Sparkles className="h-3.5 w-3.5" />
-              Rayfin multi-agent chat
+              Multi-agent chat
             </div>
             <h2 className="mt-3 text-lg font-semibold">
               {userName ? `${userName}'s AI banking desk` : 'AI banking desk'}
             </h2>
             <p className="mt-1 text-sm text-blue-100">
-              Coordinator + data, account, support, and visualization specialists backed by your Rayfin data.
+              Coordinator + data, account, support, and visualization specialists backed by your banking data.
             </p>
           </div>
         </div>
@@ -361,7 +361,7 @@ export function AgentChat({
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-700">
               <LoaderCircle className="h-4 w-4 animate-spin" />
             </span>
-            Routing your request through the Rayfin specialist workflow...
+            Routing your request through the specialist workflow...
           </div>
         )}
       </div>

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { beforeEach } from 'vitest';
 
-// Minimal localStorage shim so the Rayfin auth client can read/write tokens
+// Minimal localStorage shim so the auth client can read/write tokens
 // inside jsdom without crashing.
 const localStorageMock = {
   store: {} as Record<string, string>,

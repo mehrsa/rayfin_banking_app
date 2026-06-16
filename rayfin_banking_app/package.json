@@ -1,5 +1,5 @@
 {
-  "name": "rayfin-banking-app",
+  "name": "banking-ai-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -19,7 +19,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "rayfin:up": "rayfin up"
+    "deploy": "rayfin up"
   },
   "dependencies": {
     "@microsoft/rayfin-auth-provider-fabric": "^1.33.2",

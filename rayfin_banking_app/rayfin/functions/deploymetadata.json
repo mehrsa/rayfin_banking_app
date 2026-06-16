@@ -1,0 +1,38 @@
+{
+  "runtime": "TypeScript",
+  "functionsMetadata": [
+    {
+      "name": "chatWithBankingAgents",
+      "scriptFile": "src\\function_app.ts",
+      "bindings": [
+        {
+          "name": "req",
+          "type": "httpTrigger",
+          "direction": "in",
+          "authLevel": "anonymous",
+          "methods": [
+            "post"
+          ],
+          "route": "chatWithBankingAgents"
+        },
+        {
+          "name": "$return",
+          "type": "http",
+          "direction": "out"
+        }
+      ],
+      "fabricProperties": {
+        "fabricMetadataSchemaVersion": "1.0",
+        "fabricFunctionReturnType": "Promise<AgentApiResponse>",
+        "fabricFunctionParameters": [
+          {
+            "name": "payload",
+            "dataType": "ChatWithBankingAgentsInput",
+            "hasDefaultValue": false
+          }
+        ]
+      },
+      "functionCode": "udf.func(\r\n  'chatWithBankingAgents',\r\n  async (payload: ChatWithBankingAgentsInput): Promise<AgentApiResponse> => {\r\n    const context: RouteContext = {\r\n      profile: payload.snapshot?.profile ?? null,\r\n      accounts: payload.snapshot?.accounts ?? [],\r\n      categories: payload.snapshot?.categories ?? [],\r\n      transactions: payload.snapshot?.transactions ?? [],\r\n      analytics: payload.analytics ?? {},\r\n    };\r\n\r\n    return runMultiAgentWorkflow(\r\n      payload.prompt ?? '',\r\n      context,\r\n      payload.sessionId ?? '',\r\n      payload.userId ?? '',\r\n      payload.editingWidget ?? null,\r\n      Boolean(payload.createWidgetHint)\r\n    );\r\n  },\r\n  []\r\n)"
+    }
+  ]
+}
